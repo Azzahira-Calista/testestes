@@ -44,7 +44,7 @@ const OverlayMenu = ({ menuItems = [] }) => {
                 <div 
                     className="
                         flex gap-6 text-base font-medium px-8 py-4 rounded-full
-                        bg-black/30 backdrop-blur-lg border border-purple-400/30
+                        bg-black/0 backdrop-blur-lg border border-purple-400/30
                         relative overflow-hidden
                         transition-all duration-700 ease-out
                         hover:border-purple-300/50
@@ -82,7 +82,7 @@ const OverlayMenu = ({ menuItems = [] }) => {
                             }}
                             className="
                                 text-white/95 hover:text-white transition-all duration-300 ease-out cursor-pointer 
-                                relative z-10 px-4 py-2 rounded-lg font-semibold
+                                relative z-10 px-4 py-2 rounded-full font-semibold
                                 group/item
                             "
                             style={{
@@ -93,7 +93,7 @@ const OverlayMenu = ({ menuItems = [] }) => {
                             
                             {/* Item glow on hover */}
                             <div className="
-                                absolute inset-0 rounded-lg opacity-0 group-hover/item:opacity-100
+                                absolute inset-0 rounded-full opacity-0 group-hover/item:opacity-100
                                 bg-gradient-to-r from-purple-500/30 to-fuchsia-500/30
                                 blur-md transition-opacity duration-300 -z-10
                             "></div>
@@ -135,7 +135,7 @@ const OverlayMenu = ({ menuItems = [] }) => {
                 className={`
                     fixed inset-0 z-[1000] flex flex-col justify-center items-center 
                     transition-transform duration-500 ease-in-out pointer-events-auto md:hidden
-                    bg-gradient-to-br from-black/95 via-purple-900/60 to-black/95
+                    bg-gradient-to-br from-black/0 via-purple-900/20 to-black/0
                     backdrop-blur-lg
                     ${isOpen ? 'translate-x-0' : 'translate-x-full'}
                 `}
@@ -166,7 +166,7 @@ const OverlayMenu = ({ menuItems = [] }) => {
                             }}
                             className="
                                 text-white/95 hover:text-white transition-all duration-300 ease-out 
-                                cursor-pointer text-center py-4 px-12 rounded-xl font-semibold
+                                cursor-pointer text-center py-4 px-12 rounded-full font-semibold
                                 hover:bg-purple-500/20 hover:backdrop-blur-sm
                                 relative group/mobile border border-purple-400/20
                                 hover:border-purple-300/40
@@ -183,7 +183,7 @@ const OverlayMenu = ({ menuItems = [] }) => {
                             
                             {/* Mobile intense glow effect */}
                             <div className="
-                                absolute inset-0 rounded-xl opacity-0 group-hover/mobile:opacity-100
+                                absolute inset-0 rounded-full opacity-0 group-hover/mobile:opacity-100
                                 bg-gradient-to-r from-purple-500/20 via-violet-500/20 to-fuchsia-500/20
                                 blur-lg transition-opacity duration-300 -z-10
                             "></div>
@@ -196,3 +196,5 @@ const OverlayMenu = ({ menuItems = [] }) => {
 };
 
 export default OverlayMenu;
+
+//tesss

@@ -1,7 +1,8 @@
-import React from 'react';
+import React from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import OverlayMenu from '@/components/ui/OverlayMenu';
+import OverlayMenu from "@/components/ui/OverlayMenu";
+import AOSInit from "@/components/animation/AOSInit";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,21 +21,25 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   const menuItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Software', href: '/web' },
-    { label: 'Mograph', href: '/mograph' },
-    { label: 'Artwork', href: '/artwork' },
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about_me" },
+    { label: "Portofolio", href: "/portofolio" },
+    { label: "Archive", href: "/archive" },
+    { label: "Contact", href: "/contact_me" },
   ];
 
-   return (
+  return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}>
-  <main>
-    <OverlayMenu menuItems={menuItems} />
-    {children}
-  </main>
-</body>
-
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
+      >
+        <main className="bg-black text-white">
+          <AOSInit>
+            <OverlayMenu menuItems={menuItems} />
+            {children}
+          </AOSInit>
+        </main>
+      </body>
     </html>
   );
 }

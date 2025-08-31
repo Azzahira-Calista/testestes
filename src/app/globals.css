@@ -1,3 +1,4 @@
+@import "aos/dist/aos.css";
 @import "tailwindcss";
 
 :root {
@@ -24,3 +25,26 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes scroll-left {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        @keyframes scroll-right {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+        
+        .animate-scroll {
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
