@@ -2,6 +2,7 @@
 import React from "react";
 
 import { Button } from "@headlessui/react";
+import { homeContent,  } from "./data/content";
 
 import BlurText from "@/components/animation/blur_text";
 import MagicBento from "@/components/animation/magic_bento";
@@ -9,6 +10,9 @@ import RotatingText from "@/components/animation/rotating_text";
 import Background from "@/components/animation/background";
 
 export default function Home() {
+
+  const { rotatingTexts, blurText, cta } = homeContent;
+
   return (
     <main className="w-full h-screen relative bg-black flex justify-center items-center overflow-hidden ">
       <div
@@ -25,18 +29,12 @@ export default function Home() {
           disableRotation={false}
         />
       </div>
-      <div data-aos="fade-up" className="home absolute px-[1.5rem] py-[1rem] flex justify-center items-center min-h-screen">
-        <div className=" flex flex-col justify-center gap-2">
+      <div data-aos="fade-up" className="home absolute px-8 flex justify-center items-center ">
+        <div className=" flex flex-col justify-center gap-2 h-fit w-fit pointer-events-auto">
           <div className="job flex items-center gap-2">
             <p className="text-white">I do </p>
             <RotatingText
-              texts={[
-                "Web Dev",
-                "App Dev",
-                "Motion Graphic",
-                "Ui/Ux",
-                "Graphic Design",
-              ]}
+              texts={rotatingTexts}
               mainClassName="font-semibold px-2 sm:px-2 md:px-3 bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white overflow-hidden py-0.25 sm:py-0.5 md:py-1 justify-center rounded-lg shadow-[0_0_15px_rgba(147,51,234,0.5)] border border-purple-400/30"
               staggerFrom={"last"}
               initial={{ y: "100%" }}
@@ -57,7 +55,7 @@ export default function Home() {
           </p>
 
           <BlurText
-            text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod."
+            text={blurText}
             delay={150}
             animateBy="words"
             direction="top"
@@ -66,7 +64,7 @@ export default function Home() {
           />
 
           <Button className="cursor-pointer bg-black/30 hover:bg-purple-500/20 backdrop-blur-lg border border-purple-400/30 hover:border-purple-300/50 text-white/95 hover:text-white font-semibold py-2 px-4 rounded-full w-fit transition-all duration-300 hover:shadow-[0_0_20px_rgba(147,51,234,0.4),0_0_40px_rgba(147,51,234,0.2)] hover:shadow-purple-500/25">
-            Get in Touch
+            {cta.text}
           </Button>
         </div>
       </div>

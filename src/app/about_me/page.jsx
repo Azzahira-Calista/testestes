@@ -1,32 +1,20 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import ScrollReveal from "@/components/animation/scroll_reveal";
+import { aboutContent } from "../data/content";
+import { skills, frameworks } from "../data/skills";
+
 import BlurText from "@/components/animation/blur_text";
 import CountUp from "@/components/animation/count_up";
 
 const FrameworkPills = ({
-  frameworks = [],
+  frameworks = frameworks,
   speed = 30,
   direction = "left",
   className = "",
 }) => {
+  const duplicatedFrameworks = [...frameworks, ...frameworks];
   const [isPaused, setIsPaused] = useState(false);
-
-  // Default frameworks jika tidak ada yang diberikan
-  const defaultFrameworks = [
-    { name: "Vue.js", icon: "🛠️", color: "from-green-500 to-green-700" },
-    { name: "React", icon: "⚛️", color: "from-blue-500 to-cyan-500" },
-    { name: "Next.js", icon: "▲", color: "from-gray-800 to-gray-600" },
-    { name: "Tailwind", icon: "🎨", color: "from-teal-500 to-blue-500" },
-    { name: "Node.js", icon: "🟢", color: "from-green-600 to-green-800" },
-    { name: "Figma", icon: "🎯", color: "from-purple-600 to-pink-600" },
-  ];
-
-  const frameworkList = frameworks.length > 0 ? frameworks : defaultFrameworks;
-
-  // Duplicate array untuk seamless loop
-  const duplicatedFrameworks = [...frameworkList, ...frameworkList];
 
   return (
     <div className={`relative overflow-hidden py-8 ${className}`}>
@@ -92,27 +80,8 @@ const FrameworkPills = ({
   );
 };
 
-// About Me Page Component
-const AboutMe = () => {
-  const frameworks = [
-    { name: "Vue.js", icon: "🛠️" },
-    { name: "React", icon: "⚛️" },
-    { name: "Next.js", icon: "▲" },
-    { name: "Tailwind CSS", icon: "🎨" },
-    { name: "Node.js", icon: "🟢" },
-    { name: "Figma", icon: "🎯" },
-    { name: "Adobe Creative Suite", icon: "🎪" },
-  ];
-
-  const skills = [
-    { name: "Website Development (FE)", level: 90 },
-    { name: "App Development (FE)", level: 80 },
-    { name: "UI/UX Design", level: 75 },
-    { name: "Graphic Design and Illustration", level: 60 },
-    { name: "Motion Graphics", level: 40 },
-
-  ];
-
+export default function AboutPage() {
+  const { hero, story, interests } = aboutContent;
   return (
     <main className="min-h-screen relative">
       {/* Hero Section */}
@@ -128,7 +97,7 @@ const AboutMe = () => {
           />
 
           <BlurText
-            text="Digital Creator & Problem Solver"
+            text={hero.subtitle}
             delay={150}
             animateBy="words"
             direction="top"
@@ -165,15 +134,11 @@ const AboutMe = () => {
               />
               <div className="text-white/80 text-lg leading-relaxed mb-6">
                 <p className="text-white/80 text-lg leading-relaxed mb-6">
-                  When does a man die? When he is hit by a bullet? No! When he
-                  suffers a disease? No! When he ate a soup made out of a
-                  poisonous mushroom? No! A man dies when he is forgotten!
+                  {story.paragraphs[0]}
                 </p>
               </div>
               <p className="text-white/80 text-lg leading-relaxed mb-6">
-                I specialize in bringing ideas to life through clean code,
-                thoughtful design, and smooth animations. Every project is an
-                opportunity to solve problems and create something meaningful.
+                {story.paragraphs[1]}
               </p>
               {/* Fun Stats */}
               <div className="grid grid-cols-2 gap-4 mt-8">
@@ -191,13 +156,13 @@ const AboutMe = () => {
                     50+
                   </div> */}
                   <CountUp
-  from={0}
-  to={100}
-  separator=","
-  direction="up"
-  duration={1}
-  className="count-up-text"
-/>
+                    from={0}
+                    to={100}
+                    separator=","
+                    direction="up"
+                    duration={1}
+                    className="count-up-text"
+                  />
                   <div className="text-white/70 text-sm">Projects</div>
                 </div>
 
@@ -214,7 +179,7 @@ const AboutMe = () => {
                   <div className="text-2xl font-bold text-purple-300 group-hover:text-purple-200 transition-colors duration-300">
                     ∞
                   </div>
-                  <div className="text-white/70 text-sm">Coffee Cups</div>
+                  <div className="text-white/70 text-sm">Chocolate Cups</div>
                 </div>
               </div>
             </div>
@@ -260,7 +225,7 @@ const AboutMe = () => {
       <section className="px-8 py-16">
         <div className="max-w-4xl mx-auto">
           <BlurText
-            text="Digital Creator & Problem Solver"
+            text={aboutContent.hero.subtitle}
             delay={150}
             animateBy="words"
             direction="top"
@@ -319,23 +284,7 @@ const AboutMe = () => {
           />
 
           <div data-aos="fade-right" className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: "🎵",
-                title: "Music Lover",
-                desc: "Helps me code better",
-              },
-              {
-                icon: "🎮",
-                title: "Gaming Enthusiast",
-                desc: "A way to unwind and recharge",
-              },
-              {
-                icon: "🌱",
-                title: "Always Learning",
-                desc: "Constantly growing",
-              },
-            ].map((item, index) => (
+            {interests.map((interest, index) => (
               <div
                 key={index}
                 className="
@@ -346,12 +295,12 @@ const AboutMe = () => {
                 style={{ boxShadow: "0 0 15px rgba(147, 51, 234, 0.2)" }}
               >
                 <div className="text-4xl mb-4 group-hover:scale-150 transition-transform duration-300">
-                  {item.icon}
+                  {interest.icon}
                 </div>
                 <h3 className="text-white font-semibold mb-2 group-hover:text-purple-200 transition-colors duration-300">
-                  {item.title}
+                  {interest.title}
                 </h3>
-                <p className="text-white/70 text-sm">{item.desc}</p>
+                <p className="text-white/70 text-sm">{interest.description}</p>
 
                 {/* Hover glow */}
                 <div
@@ -366,8 +315,8 @@ const AboutMe = () => {
           </div>
         </div>
       </section>
+
+      
     </main>
   );
-};
-
-export default AboutMe;
+}

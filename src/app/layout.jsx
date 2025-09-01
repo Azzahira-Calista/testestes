@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import OverlayMenu from "@/components/ui/OverlayMenu";
 import AOSInit from "@/components/animation/AOSInit";
+import Footers from "@/components/layout/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +24,7 @@ export default function RootLayout({ children }) {
   const menuItems = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about_me" },
-    { label: "Portofolio", href: "/portofolio" },
+    { label: "Portofolio", href: "/portfolio" },
     { label: "Archive", href: "/archive" },
     { label: "Contact", href: "/contact_me" },
   ];
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
           <AOSInit>
             <OverlayMenu menuItems={menuItems} />
             {children}
+            <Footers />
           </AOSInit>
         </main>
       </body>
