@@ -11,7 +11,7 @@ export default function ArchivePage() {
           <div className="w-64 h-64 bg-purple-600 rounded-full blur-3xl opacity-40"></div>
         </div> */}
         <BlurText
-          text="My ArtChive."
+          text="My ArtChive. (On Development)"
           className=" text-4xl md:text-6xl font-bold text-shadow-yellow-300"
         />
       </div>

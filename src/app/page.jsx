@@ -2,12 +2,13 @@
 import React from "react";
 
 import { Button } from "@headlessui/react";
-import { homeContent,  } from "./data/content";
+import { homeContent, aboutContent } from "./data/content";
 
 import BlurText from "@/components/animation/blur_text";
 import MagicBento from "@/components/animation/magic_bento";
 import RotatingText from "@/components/animation/rotating_text";
 import Background from "@/components/animation/background";
+import Link from "next/link";
 
 export default function Home() {
 
@@ -47,7 +48,24 @@ export default function Home() {
             />
           </div>
 
-          <p
+          <BlurText
+            text={aboutContent.hero.title}
+            delay={150}
+            animateBy="words"
+            direction="top"
+            className="text-6xl md:text-8xl font-bold text-white "
+            style={{ textShadow: "0 0 30px rgba(147, 51, 234, 0.4)" }}
+          />
+
+          <BlurText
+            text="Let's create something amazing together"
+            delay={150}
+            animateBy="words"
+            direction="top"
+           className="text-2xl mb-4 text-purple-300"
+            style={{ textShadow: "0 0 10px rgba(196, 181, 253, 0.5)" }}
+          />
+          {/* <p
             className="text-4xl font-bold text-white"
             style={{ textShadow: "0 0 40px rgba(147, 51, 234, 0.3)" }}
           >
@@ -61,11 +79,13 @@ export default function Home() {
             direction="top"
             className="text-2xl mb-4 text-purple-300"
             style={{ textShadow: "0 0 10px rgba(196, 181, 253, 0.5)" }}
-          />
+          /> */}
 
-          <Button className="cursor-pointer bg-black/30 hover:bg-purple-500/20 backdrop-blur-lg border border-purple-400/30 hover:border-purple-300/50 text-white/95 hover:text-white font-semibold py-2 px-4 rounded-full w-fit transition-all duration-300 hover:shadow-[0_0_20px_rgba(147,51,234,0.4),0_0_40px_rgba(147,51,234,0.2)] hover:shadow-purple-500/25">
-            {cta.text}
-          </Button>
+          <Link href={cta.href}>
+            <Button className="cursor-pointer bg-black/30 hover:bg-purple-500/20 backdrop-blur-lg border border-purple-400/30 hover:border-purple-300/50 text-white/95 hover:text-white font-semibold py-2 px-4 rounded-full w-fit transition-all duration-300 hover:shadow-[0_0_20px_rgba(147,51,234,0.4),0_0_40px_rgba(147,51,234,0.2)] hover:shadow-purple-500/25">
+              {cta.text}
+            </Button>
+          </Link>
         </div>
       </div>
     </main>

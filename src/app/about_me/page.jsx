@@ -3,6 +3,15 @@
 import React, { useState, useEffect } from "react";
 import { aboutContent } from "../data/content";
 import { skills, frameworks } from "../data/skills";
+import Carousel, {
+  Slider,
+  SliderContainer,
+  ThumsSlider,
+} from "@/components/ui/carousel";
+import Image from "next/image";
+
+// import hobby from "/public/images/hobby.jpg";
+// import professional from "/public/images/professional.jpg";
 
 import BlurText from "@/components/animation/blur_text";
 import CountUp from "@/components/animation/count_up";
@@ -81,6 +90,7 @@ const FrameworkPills = ({
 };
 
 export default function AboutPage() {
+  const OPTIONS = { loop: true };
   const { hero, story, interests } = aboutContent;
   return (
     <main className="min-h-screen relative">
@@ -95,7 +105,7 @@ export default function AboutPage() {
             className="text-6xl md:text-8xl font-bold text-white mb-6"
             style={{ textShadow: "0 0 30px rgba(147, 51, 234, 0.4)" }}
           />
-
+          
           <BlurText
             text={hero.subtitle}
             delay={150}
@@ -155,14 +165,18 @@ export default function AboutPage() {
                   {/* <div className="text-2xl font-bold text-purple-300 group-hover:text-purple-200 transition-colors duration-300">
                     50+
                   </div> */}
-                  <CountUp
-                    from={0}
-                    to={100}
-                    separator=","
-                    direction="up"
-                    duration={1}
-                    className="count-up-text"
-                  />
+                  <div className=" flex items-center justify-center text-lg font-bold text-purple-300 group-hover:text-purple-200 transition-colors duration-300">
+                    <CountUp
+                      from={0}
+                      to={20}
+                      separator=","
+                      direction="up"
+                      duration={1}
+                      className="count-up-text"
+                    />
+                    <p>+</p>
+                  </div>
+
                   <div className="text-white/70 text-sm">Projects</div>
                 </div>
 
@@ -176,7 +190,7 @@ export default function AboutPage() {
                     boxShadow: "0 0 15px rgba(147, 51, 234, 0.2)",
                   }}
                 >
-                  <div className="text-2xl font-bold text-purple-300 group-hover:text-purple-200 transition-colors duration-300">
+                  <div className="text-3xl font-bold text-purple-300 group-hover:text-purple-200 transition-colors duration-300">
                     ∞
                   </div>
                   <div className="text-white/70 text-sm">Chocolate Cups</div>
@@ -184,37 +198,114 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Profile Image Placeholder */}
+            {/* Profile Image with Flip Card */}
             <div data-aos="fade-up" className="flex justify-center">
-              <div
-                className="
-                w-80 h-80 rounded-2xl relative overflow-hidden
-                bg-gradient-to-br from-purple-500/20 via-violet-400/15 to-fuchsia-500/20
-                backdrop-blur-lg border border-purple-400/30
-                group cursor-pointer
-              "
-                style={{
-                  boxShadow: `
-                  0 0 30px rgba(147, 51, 234, 0.3),
-                  inset 0 0 30px rgba(147, 51, 234, 0.1)
-                `,
-                }}
-              >
-                {/* Placeholder content */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-6xl text-white/50">📸</div>
-                </div>
-
-                {/* Glass reflection */}
-                <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/10 to-transparent"></div>
-
-                {/* Hover glow */}
+              <div className="w-80 h-80 perspective-1000 group cursor-pointer">
+                {/* Flip Card Container */}
                 <div
                   className="
-                  absolute inset-0 bg-gradient-to-br from-purple-400/20 to-fuchsia-400/20
-                  opacity-0 group-hover:opacity-100 transition-opacity duration-500
-                "
-                ></div>
+      relative w-full h-full transition-transform duration-700 ease-out
+      transform-style-preserve-3d group-hover:rotate-y-180
+    "
+                >
+                  {/* Front Side - Professional */}
+                  <div
+                    className="
+        absolute inset-0 w-full h-full backface-hidden
+        rounded-2xl overflow-hidden
+        bg-gradient-to-br from-purple-500/20 via-violet-400/15 to-fuchsia-500/20
+        backdrop-blur-lg border border-purple-400/30
+        shadow-glow
+      "
+                  >
+                    {/* Professional Photo */}
+                    <Image
+                      // src={professional}
+                      src="/images/professional.jpg"
+                      alt="Calista - Professional"
+                      className="w-full h-full object-cover"
+                      width={320}
+                      height={320}
+                    />
+
+                    {/* Overlay for better text readability */}
+                    <div className="absolute inset-0 bg-black/20"></div>
+
+                    {/* Professional Info Overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                      <h3
+                        className="text-xl font-bold text-white mb-1"
+                        style={{
+                          textShadow: "0 0 15px rgba(147, 51, 234, 0.6)",
+                        }}
+                      >
+                        Calista Azzahira Rusdy
+                      </h3>
+                      <p className="text-purple-300 text-sm font-medium">
+                        Programmer
+                      </p>
+                    </div>
+
+                    {/* Glass reflection */}
+                    <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/10 to-transparent"></div>
+
+                    {/* Floating particles */}
+                    <div className="absolute top-4 right-4 w-2 h-2 bg-purple-400/60 rounded-full animate-pulse"></div>
+                    <div className="absolute bottom-20 left-6 w-1 h-1 bg-fuchsia-400/60 rounded-full animate-pulse delay-1000"></div>
+                  </div>
+
+                  {/* Back Side - Hobby/Personal */}
+                  <div
+                    className="
+        absolute inset-0 w-full h-full backface-hidden rotate-y-180
+        rounded-2xl overflow-hidden
+        bg-gradient-to-br from-fuchsia-500/20 via-purple-400/15 to-violet-500/20
+        backdrop-blur-lg border border-fuchsia-400/30
+        shadow-glow
+      "
+                  >
+                    {/* Hobby Photo */}
+                    <Image
+                      src="/images/hobby.jpg"
+                      alt="Calista - Personal"
+                      className="w-full h-full object-cover"
+                      // style={{ filter: "hue-rotate(30deg) saturate(1.2)" }}
+                      width={320}
+                      height={320}
+                    />
+
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-black/20"></div>
+
+                    {/* Personal Info Overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                      <h3
+                        className="text-xl font-bold text-white mb-2"
+                        style={{
+                          textShadow: "0 0 15px rgba(217, 70, 239, 0.6)",
+                        }}
+                      >
+                        When I'm Not Coding
+                      </h3>
+
+                      <p className="text-fuchsia-300 text-sm font-medium">
+                        Cosplaying • Watching • Gaming
+                      </p>
+                    </div>
+
+                    {/* Glass reflection */}
+                    <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/10 to-transparent"></div>
+
+                    {/* Different colored particles */}
+                    <div className="absolute top-4 left-4 w-2 h-2 bg-fuchsia-400/60 rounded-full animate-pulse delay-500"></div>
+                    <div className="absolute bottom-20 right-6 w-1 h-1 bg-violet-400/60 rounded-full animate-pulse delay-1500"></div>
+                  </div>
+                </div>
+
+                {/* Flip Instruction */}
+                <p className="text-center text-white/60 text-sm mt-4">
+                  Psstt, try flipping me over!
+                </p>
               </div>
             </div>
           </div>
@@ -271,6 +362,157 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* certification */}
+<section className="px-8 py-16">
+  <div className="max-w-6xl mx-auto">
+    {/* Centered Title */}
+    <div className="flex justify-center mb-12">
+      <BlurText
+        text="Certifications"
+        delay={150}
+        animateBy="words"
+        direction="top"
+        className="text-4xl font-bold text-white text-center"
+        style={{ textShadow: "0 0 20px rgba(147, 51, 234, 0.3)" }}
+      />
+    </div>
+
+    {/* Carousel Container with Purple Theme */}
+    <div 
+      data-aos="fade-up" 
+      className="
+        w-full max-w-4xl mx-auto rounded-2xl overflow-hidden
+        bg-black/30 backdrop-blur-lg border border-purple-400/30
+        shadow-glass hover:shadow-glow transition-all duration-300
+        p-6
+      "
+    >
+      {/* Glass reflection */}
+      <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-white/5 to-transparent pointer-events-none rounded-t-2xl"></div>
+      
+      <Carousel options={OPTIONS} className="relative z-10" isAutoPlay={true}>
+        <SliderContainer className="gap-4">
+          <Slider
+            className="
+            xl:h-[600px] md:h-[550px] sm:h-[400px] h-[300px] w-full
+            rounded-xl overflow-hidden
+            border border-purple-400/20 hover:border-purple-300/40
+            transition-all duration-300 group
+          "
+            thumnailSrc="/sertifikat/intern1.png"
+          >
+            <div className="relative h-full w-full">
+              <Image
+                src="/sertifikat/intern1.png"
+                width={1400}
+                height={800}
+                alt="Internship Certificate 1"
+                className="h-full object-cover w-full group-hover:scale-105 transition-transform duration-500"
+              />
+              {/* Hover overlay */}
+              <div className="
+                absolute inset-0 bg-gradient-to-t from-purple-900/30 to-transparent
+                opacity-0 group-hover:opacity-100 transition-opacity duration-300
+              "></div>
+              {/* Glow particles */}
+              <div className="absolute top-4 right-4 w-2 h-2 bg-purple-400/60 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-700"></div>
+            </div>
+          </Slider>
+
+          <Slider
+          className="
+            xl:h-[600px] md:h-[550px] sm:h-[400px] h-[300px] w-full
+            rounded-xl overflow-hidden
+            border border-purple-400/20 hover:border-purple-300/40
+            transition-all duration-300 group
+          "
+            thumnailSrc="/sertifikat/intern2.png"
+          >
+            <div className="relative h-full w-full">
+              <Image
+                src="/sertifikat/intern2.png"
+                width={1400}
+                height={800}
+                alt="Internship Certificate 2"
+                className="h-full object-cover w-full group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="
+                absolute inset-0 bg-gradient-to-t from-violet-900/30 to-transparent
+                opacity-0 group-hover:opacity-100 transition-opacity duration-300
+              "></div>
+              <div className="absolute bottom-4 left-4 w-1 h-1 bg-violet-400/60 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-700 delay-200"></div>
+            </div>
+          </Slider>
+
+          <Slider
+            className="
+            xl:h-[600px] md:h-[550px] sm:h-[400px] h-[300px] w-full
+            rounded-xl overflow-hidden
+            border border-purple-400/20 hover:border-purple-300/40
+            transition-all duration-300 group
+          "
+            thumnailSrc="/sertifikat/dicoding_react_expert.png"
+          >
+            <div className="relative h-full w-full">
+              <Image
+                src="/sertifikat/dicoding_react_expert.png"
+                width={1400}
+                height={800}
+                alt="Dicoding React Expert Certificate"
+                className="h-full object-cover w-full group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="
+                absolute inset-0 bg-gradient-to-t from-fuchsia-900/30 to-transparent
+                opacity-0 group-hover:opacity-100 transition-opacity duration-300
+              "></div>
+              <div className="absolute top-1/2 right-4 w-1.5 h-1.5 bg-fuchsia-400/60 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-700 delay-500"></div>
+            </div>
+          </Slider>
+
+          <Slider
+            className="
+            xl:h-[600px] md:h-[550px] sm:h-[400px] h-[300px] w-full
+            rounded-xl overflow-hidden
+            border border-purple-400/20 hover:border-purple-300/40
+            transition-all duration-300 group
+          "
+            thumnailSrc="/sertifikat/id_camp_react.png"
+          >
+            <div className="relative h-full w-full">
+              <Image
+                src="/sertifikat/id_camp_react.png"
+                width={1400}
+                height={800}
+                alt="ID Camp React Certificate"
+                className="h-full object-cover w-full group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="
+                absolute inset-0 bg-gradient-to-t from-purple-900/30 to-transparent
+                opacity-0 group-hover:opacity-100 transition-opacity duration-300
+              "></div>
+              <div className="absolute bottom-6 right-6 w-2 h-2 bg-purple-400/60 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-700 delay-300"></div>
+            </div>
+          </Slider>
+        </SliderContainer>
+        
+        {/* Custom Thumbnail Slider with Purple Theme */}
+        <div className="mt-6">
+          <ThumsSlider className="
+            [&_.thumbnail]:border-purple-400/30 
+            [&_.thumbnail]:hover:border-purple-300/50
+            [&_.thumbnail.active]:border-purple-500/70
+            [&_.thumbnail.active]:shadow-glow
+            [&_.thumbnail]:transition-all
+            [&_.thumbnail]:duration-300
+          " />
+        </div>
+      </Carousel>
+    </div>
+
+    
+  </div>
+</section>
+
       {/* Personal Touch */}
       <section className="px-8 py-16">
         <div className="max-w-4xl mx-auto text-center">
@@ -315,8 +557,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      
     </main>
   );
 }

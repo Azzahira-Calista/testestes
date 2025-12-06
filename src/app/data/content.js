@@ -22,8 +22,8 @@ export const aboutContent = {
   story: {
     title: "My Journey",
     paragraphs: [
-      "My journey started with curiosity about how websites work. What began as tinkering with HTML has evolved into a passion for creating seamless digital experiences that users love.",
-      "I specialize in bringing ideas to life through clean code, thoughtful design, and smooth animations. Every project is an opportunity to solve problems and create something meaningful.",
+      "My journey began from a curiosity about how games were made, which later grew into an interest in design and building digital experiences.",
+  "Now, I enjoy front-end development—both web and mobile—where I can combine design and code to create clean and intuitive interfaces.",
       "When I'm not coding, you'll find me exploring new design trends, experimenting with motion graphics, or sipping coffee while sketching out the next big idea.",
     ],
   },
@@ -63,15 +63,15 @@ export const homeContent = {
   rotatingTexts: [
     "Web Dev",
     "App Dev",
-    "Motion Graphic",
+    "Illustration",
     "Ui/Ux",
     "Graphic Design",
   ],
-  blurText:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+  // blurText:
+    // "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
   cta: {
     text: "Get in Touch",
-    href: "/contact",
+    href: "/contact_me",
   },
 };
 
@@ -85,15 +85,15 @@ export const navigation = {
 };
 
 export const socialLinks = [
-  { name: "GitHub", url: "https://github.com/calista", icon: <FaGithub /> },
-  { name: "LinkedIn", url: "https://linkedin.com/in/calista", icon: <FaLinkedin /> },
+  { name: "GitHub", url: "https://github.com/azzahira-calista", icon: <FaGithub /> },
+  { name: "LinkedIn", url: "https://linkedin.com/in/calista-azzahira-rusdy", icon: <FaLinkedin /> },
 //   { name: "Dribbble", url: "https://dribbble.com/calista", icon: <FaDribbble /> },
-  { name: "Instagram", url: "https://instagram.com/calista", icon: <FaInstagram /> },
+  { name: "Instagram", url: "https://instagram.com/callzhira", icon: <FaInstagram /> },
 ];
 
 export const contact = {
-  email: "hello@calista.dev",
-  phone: "+62 xxx-xxxx-xxxx",
-  location: "Tangerang, Indonesia",
+  email: "calista.azzahira.r@calista.dev",
+  phone: "+62 878-0403-7393",
+  location: "Tangerang Selatan, Indonesia",
   availability: "Available for freelance projects",
 };

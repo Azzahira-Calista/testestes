@@ -137,7 +137,7 @@ export default function PortfolioPage() {
                     ${
                       project.status === "Completed"
                         ? "bg-green-500/80 text-white"
-                        : "bg-yellow-500/80 text-black"
+                        : "bg-yellow-300/80 text-white"
                     }
                   `}
                         >

@@ -113,43 +113,47 @@ export default function ProjectDetail({ params }) {
 
             {/* Action Buttons */}
             <div data-aos="fade-left" className="flex justify-center gap-4">
-              <Button
-                onClick={() => window.open(project.projectUrl, "_blank")}
-                className="
-                  bg-gradient-to-r from-purple-500/80 to-fuchsia-500/80
-                  hover:from-purple-500 hover:to-fuchsia-500
-                  text-white font-semibold py-3 px-8 rounded-full
-                  border border-purple-400/50 hover:border-purple-300/70
-                  transition-all duration-300 shadow-glow hover:shadow-glow-lg
-                  cursor-pointer flex items-center gap-2
-                "
-              >
-                <span>Live Demo</span>
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+              {project.projectUrl && (
+                <Button
+                  onClick={() => window.open(project.projectUrl, "_blank")}
+                  className="
+                    bg-gradient-to-r from-purple-500/80 to-fuchsia-500/80
+                    hover:from-purple-500 hover:to-fuchsia-500
+                    text-white font-semibold py-3 px-8 rounded-full
+                    border border-purple-400/50 hover:border-purple-300/70
+                    transition-all duration-300 shadow-glow hover:shadow-glow-lg
+                    cursor-pointer flex items-center gap-2
+                  "
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </Button>
+                  <span>Live Demo</span>
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                </Button>
+              )}
 
-              <Button
-                className="
-                bg-black/30 hover:bg-purple-500/20 backdrop-blur-lg 
-                border border-purple-400/30 hover:border-purple-300/50 
-                text-white/95 hover:text-white font-semibold 
-                py-3 px-8 rounded-full transition-all duration-300 
-                shadow-glass hover:shadow-glow cursor-pointer
-                flex items-center gap-2
-              "
-              >
+              {project.projectCode && (
+                <Button
+                  onClick={() => window.open(project.projectCode, "_blank")}
+                  className="
+                  bg-black/30 hover:bg-purple-500/20 backdrop-blur-lg 
+                  border border-purple-400/30 hover:border-purple-300/50 
+                  text-white/95 hover:text-white font-semibold 
+                  py-3 px-8 rounded-full transition-all duration-300 
+                  shadow-glass hover:shadow-glow cursor-pointer
+                  flex items-center gap-2
+                "
+                >
                 <span>View Code</span>
                 <svg
                   className="w-4 h-4"
@@ -165,6 +169,7 @@ export default function ProjectDetail({ params }) {
                   />
                 </svg>
               </Button>
+              )}
             </div>
           </div>
         </div>
@@ -183,7 +188,7 @@ export default function ProjectDetail({ params }) {
             <img
               src={project.imageUrl}
               alt={project.title}
-              className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-1/2 object-cover group-hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
           </div>
@@ -210,13 +215,10 @@ export default function ProjectDetail({ params }) {
                 Project Overview
               </h2>
               <p className="text-white/80 text-lg leading-relaxed mb-6">
-                {project.description}
+                {project.overview}
               </p>
               <p className="text-white/80 text-lg leading-relaxed">
-                This project demonstrates my ability to create modern,
-                responsive web applications with attention to detail and user
-                experience. The implementation showcases best practices in React
-                development and contemporary design principles.
+                {project.overview2}
               </p>
             </div>
 

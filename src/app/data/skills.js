@@ -1,82 +1,99 @@
+import {
+  FaReact,
+  FaVuejs,
+  FaJs,
+  FaGithub,
+  FaFigma,
+  FaLaravel,
+  FaUnity,
+} from "react-icons/fa";
+import { RiTailwindCssFill } from "react-icons/ri";
+import { SiAdobeaftereffects, SiBlender } from "react-icons/si";
+import { FaFlutter, FaDartLang  } from "react-icons/fa6";
+
 export const skills = [
-  { 
-    name: 'Frontend Development', 
-    level: 90, 
-    icon: '⚛️',
-    description: 'React, Next.js, Vue.js',
-    category: 'Technical'
-  },
-  { 
-    name: 'UI/UX Design', 
-    level: 85, 
-    icon: '🎨',
-    description: 'Figma, Adobe XD, User Research',
-    category: 'Design'
-  },
-  { 
-    name: 'Motion Graphics', 
-    level: 80, 
-    icon: '🎭',
-    description: 'After Effects, Framer Motion',
-    category: 'Creative'
-  },
-  { 
-    name: 'App Development', 
-    level: 75, 
-    icon: '📱',
-    description: 'React Native, Flutter',
-    category: 'Technical'
+  {
+    name: "Frontend Web Development",
+    level: 90,
+    icon: <FaReact />,
+    description: "React, Next.js, Vue.js",
+    category: "Technical",
   },
   {
-    name: 'Backend Development',
-    level: 70,
-    icon: '🔧',
-    description: 'Node.js, MongoDB, APIs',
-    category: 'Technical'
-  },
-  {
-    name: 'Graphic Design',
+    name: "Frontend App Development",
     level: 85,
-    icon: '🖌️',
-    description: 'Photoshop, Illustrator, Branding',
-    category: 'Design'
-  }
+    icon: <FaFlutter />,
+    description: "Flutter",
+    category: "Technical",
+  },
+  {
+    name: "UI/UX Design",
+    level: 80,
+    icon: <FaFigma />,
+    description: "Figma, Adobe XD, User Research",
+    category: "Design",
+  },
+  {
+    name: "Graphic Design",
+    level: 50,
+    icon: <FaFigma />,
+    description: "Photoshop, Illustrator, Figma, Canva",
+    category: "Design",
+  },
+  {
+    name: "Backend Development",
+    level: 20,
+    icon: <FaLaravel />,
+    description: "Laravel, mySQL, APIs",
+    category: "Technical",
+  },
+  {
+    name: "Motion Graphics",
+    level: 20,
+    icon: <SiAdobeaftereffects />,
+    description: "After Effects, Framer Motion",
+    category: "Creative",
+  },
+  
 ];
 
 export const frameworks = [
-  { name: 'React', icon: '⚛️', type: 'Frontend' },
-  { name: 'Next.js', icon: '▲', type: 'Framework' },
-  { name: 'Tailwind CSS', icon: '🎨', type: 'Styling' },
-  { name: 'Framer Motion', icon: '🎭', type: 'Animation' },
-  { name: 'TypeScript', icon: '📘', type: 'Language' },
-  { name: 'Node.js', icon: '🟢', type: 'Backend' },
-  { name: 'Figma', icon: '🎯', type: 'Design' },
-  { name: 'Adobe Creative Suite', icon: '🎪', type: 'Creative' },
-  { name: 'MongoDB', icon: '🍃', type: 'Database' },
-  { name: 'Git', icon: '📚', type: 'Tools' },
+  { name: "Vue.js", icon: <FaVuejs />, type: "Frontend" },
+  { name: "JavaScript", icon: <FaJs />, type: "Language" },
+  { name: "Dart", icon: <FaDartLang />, type: "Language" },
+  { name: "Flutter", icon: <FaFlutter />, type: "Framework" },
+  { name: "React", icon: <FaReact />, type: "Frontend" },
+  { name: "Next.js", icon: "▲", type: "Framework" },
+  { name: "Git", icon: <FaGithub />, type: "Tools" },
+  { name: "Blender", icon: <SiBlender />, type: "3D Modeling" },
+  { name: "Unity", icon: <FaUnity />, type: "Game Development" },
+  { name: "Tailwind CSS", icon: <RiTailwindCssFill />, type: "Styling" },
+  { name: "Laravel", icon: <FaLaravel />, type: "Backend" },
+  { name: "Figma", icon: <FaFigma />, type: "Design" },
+  { name: "Adobe After Effects", icon: <SiAdobeaftereffects />, type: "Creative" },
 ];
 
 export const softSkills = [
-  { name: 'Problem Solving', icon: '🧩', strength: 'High' },
-  { name: 'Creative Thinking', icon: '💡', strength: 'High' },
-  { name: 'Team Collaboration', icon: '🤝', strength: 'Medium' },
-  { name: 'Communication', icon: '💬', strength: 'High' },
-  { name: 'Time Management', icon: '⏰', strength: 'Medium' },
+  { name: "Problem Solving", icon: "🧩", strength: "High" },
+  { name: "Creative Thinking", icon: "💡", strength: "High" },
+  { name: "Team Collaboration", icon: "🤝", strength: "Medium" },
+  { name: "Communication", icon: "💬", strength: "High" },
+  { name: "Time Management", icon: "⏰", strength: "Medium" },
 ];
 
 // Helper functions
 export const getSkillsByCategory = (category) => {
-  return skills.filter(skill => skill.category === category);
+  return skills.filter((skill) => skill.category === category);
 };
 
 export const getTechnicalSkills = () => {
-  return getSkillsByCategory('Technical');
+  return getSkillsByCategory("Technical");
 };
 
 export const getDesignSkills = () => {
-  return getSkillsByCategory('Design');
+  return getSkillsByCategory("Design");
 };
 
 export const getCreativeSkills = () => {
-  return getSkillsByCategory('Creative');
+  return getSkillsByCategory("Creative");
 };
