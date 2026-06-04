@@ -6,6 +6,7 @@ import {
   FaFigma,
   FaLaravel,
   FaUnity,
+  FaPython,
 } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { SiAdobeaftereffects, SiBlender } from "react-icons/si";
@@ -20,18 +21,18 @@ export const skills = [
     category: "Technical",
   },
   {
+    name: "UI/UX Design",
+    level: 90,
+    icon: <FaFigma />,
+    description: "Figma, Adobe XD, User Research",
+    category: "Design",
+  },
+  {
     name: "Frontend App Development",
     level: 85,
     icon: <FaFlutter />,
     description: "Flutter",
     category: "Technical",
-  },
-  {
-    name: "UI/UX Design",
-    level: 80,
-    icon: <FaFigma />,
-    description: "Figma, Adobe XD, User Research",
-    category: "Design",
   },
   {
     name: "Graphic Design",
@@ -71,6 +72,7 @@ export const frameworks = [
   { name: "Laravel", icon: <FaLaravel />, type: "Backend" },
   { name: "Figma", icon: <FaFigma />, type: "Design" },
   { name: "Adobe After Effects", icon: <SiAdobeaftereffects />, type: "Creative" },
+  { name: "Python", icon: <FaPython />, type: "Language" },
 ];
 
 export const softSkills = [
@@ -81,7 +83,6 @@ export const softSkills = [
   { name: "Time Management", icon: "⏰", strength: "Medium" },
 ];
 
-// Helper functions
 export const getSkillsByCategory = (category) => {
   return skills.filter((skill) => skill.category === category);
 };

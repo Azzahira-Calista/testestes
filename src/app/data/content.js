@@ -30,7 +30,7 @@ export const aboutContent = {
 
   stats: [
     { label: "Projects", value: "50+", icon: "🚀" },
-    { label: "Coffee Cups", value: "∞", icon: "☕" },
+    { label: "Chocolate Cups", value: "∞", icon: "☕" },
     { label: "Years Experience", value: "3+", icon: "⭐" },
     { label: "Happy Clients", value: "25+", icon: "😊" },
   ],

@@ -161,9 +161,45 @@ export const projects = [
     overview: "Forum Diskusi is an online discussion platform where users can post topics, join conversations, and engage with communities across various interests.",
     overview2: "This project showcases my understanding of React, Redux state management, and building interactive user interfaces for community-based platforms.",
   },
+  {
+    id: 13,
+    title: "NEXA",
+    description: "An AI-powered career exploration platform designed to help students discover suitable career paths through transparent recommendations, skill mapping, and personalized development roadmaps.",
+    imageUrl: "/assets/nexa.png",
+    technologies: ["Figma"],
+    projectUrl: "https://www.figma.com/design/shtadcfXo8ZsZ528WDcKpS/Find-it?node-id=0-1&t=tWrI2wWGE9GAdxWZ-1",
+    category: "Design",
+    featured: true,
+    status: "Completed",
+    overview: "NEXA (Next Career Exploration Assistant) is a UX-focused AI mentor concept that helps students and young professionals make informed career decisions. By combining career recommendations, skill gap analysis, and long-term career projections, NEXA transforms complex career planning into a more understandable and personalized experience.",
+    overview2: "Designed around Human-Centered UX and Explainable AI principles, NEXA emphasizes transparency by showing users how recommendations are generated based on their interests, academic performance, aspirations, and interaction patterns. This project showcases my skills in UX research, information architecture, user flow design, wireframing, and high-fidelity prototyping using Figma."
+  },
+  {
+    id: 14,
+    title: "GY'Oreal UI/UX Concept",
+    description: "A luxury-inspired beauty brand website prototype designed in Figma, focusing on elegant visuals, user experience, and interactive design.",
+    imageUrl: "/assets/gyoreal.png",
+    technologies: ["Figma"],
+    category: "Design",
+    featured: true,
+    status: "Completed",
+    overview: "GY'Oreal UI/UX Concept is a high-fidelity website prototype created for a modern cosmetics brand. The design focuses on sophisticated layouts, soft color palettes, clear information hierarchy, and seamless navigation across five main pages.",
+    overview2: "This project showcases my UI/UX design process, including component creation, design systems, interactive prototypes, typography selection, color styling, and responsive layout planning using Figma."
+  },
+  {
+    id: 15,
+    title: "GY'Oreal Website",
+    description: "A responsive beauty brand website developed using HTML, CSS, and JavaScript based on Human-Computer Interaction principles.",
+    imageUrl: "/assets/gyoreal.png",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    category: "Web Development",
+    featured: true,
+    status: "Completed",
+    overview: "GY'Oreal Website is a fully functional responsive website developed for a cosmetics company. The website includes product galleries, beauty articles, company information, and a subscription system designed to deliver an engaging user experience across desktop and mobile devices.",
+    overview2: "Built as part of a Human-Computer Interaction project, this website demonstrates my front-end development skills, including responsive layouts, JavaScript form validation, accessibility considerations, and implementation of usability-focused design principles."
+  },
 ];
 
-// Helper functions
 export const getFeaturedProjects = () => {
   return projects.filter(project => project.featured);
 };
