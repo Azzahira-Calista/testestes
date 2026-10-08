@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
       >
         <main className="bg-black text-white">
           <AOSInit>
-            <OverlayMenu menuItems={menuItems} />
+            <OverlayMenu menuItems={menuItems} cvUrl="/cv.pdf" cvFileName="CV-Calista.pdf" />
             {children}
             <Footers />
           </AOSInit>

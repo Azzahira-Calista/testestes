@@ -1,10 +1,10 @@
 'use client'; 
 
 import React, { useState, useEffect } from 'react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'; 
+import { Bars3Icon, XMarkIcon, ArrowDownTrayIcon } from '@heroicons/react/24/outline'; 
 import IconButton from './IconButton'; 
 
-const OverlayMenu = ({ menuItems = [] }) => {
+const OverlayMenu = ({ menuItems = [], cvUrl = "/cv.pdf", cvFileName = "CV.pdf" }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -43,7 +43,7 @@ const OverlayMenu = ({ menuItems = [] }) => {
             <nav className="hidden md:flex md:fixed md:top-6 md:left-1/2 md:transform md:-translate-x-1/2 md:z-[1001]">
                 <div 
                     className="
-                        flex gap-6 text-base font-medium px-8 py-4 rounded-full
+                        flex items-center gap-4 lg:gap-6 text-base font-medium px-6 lg:px-8 py-3.5 rounded-full
                         bg-black/0 backdrop-blur-lg border border-purple-400/30
                         relative overflow-hidden
                         transition-all duration-700 ease-out
@@ -82,7 +82,7 @@ const OverlayMenu = ({ menuItems = [] }) => {
                             }}
                             className="
                                 text-white/95 hover:text-white transition-all duration-300 ease-out cursor-pointer 
-                                relative z-10 px-4 py-2 rounded-full font-semibold
+                                relative z-10 px-3.5 py-1.5 rounded-full font-semibold
                                 group/item
                             "
                             style={{
@@ -115,6 +115,32 @@ const OverlayMenu = ({ menuItems = [] }) => {
                             ></span>
                         </a>
                     ))}
+
+                    {/* Subtle Divider */}
+                    <div className="relative z-10 h-5 w-[1px] bg-purple-400/30" />
+
+                    {/* Download CV Button */}
+                    <a
+                        href={cvUrl}
+                        download={cvFileName}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="
+                            relative z-10 flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold
+                            text-white bg-purple-600/40 hover:bg-purple-600/70
+                            border border-purple-400/50 hover:border-purple-300
+                            transition-all duration-300 ease-out cursor-pointer
+                            hover:scale-105 active:scale-95 group/cv
+                        "
+                        style={{
+                            boxShadow: '0 0 15px rgba(147, 51, 234, 0.4)',
+                            textShadow: '0 0 10px rgba(147, 51, 234, 0.5)'
+                        }}
+                        title="Download CV (PDF)"
+                    >
+                        <ArrowDownTrayIcon className="w-4 h-4 text-purple-200 transition-transform duration-300 group-hover/cv:-translate-y-0.5" />
+                        <span>CV</span>
+                    </a>
                 </div>
             </nav>
 
@@ -152,7 +178,7 @@ const OverlayMenu = ({ menuItems = [] }) => {
                     }}
                 ></div>
                 
-                <nav className="flex flex-col gap-6 text-2xl font-medium relative z-10">
+                <nav className="flex flex-col items-center gap-5 text-2xl font-medium relative z-10 w-full max-w-xs px-6">
                     {menuItems.map((item, index) => (
                         <a
                             key={item.href || index}
@@ -166,7 +192,7 @@ const OverlayMenu = ({ menuItems = [] }) => {
                             }}
                             className="
                                 text-white/95 hover:text-white transition-all duration-300 ease-out 
-                                cursor-pointer text-center py-4 px-12 rounded-full font-semibold
+                                cursor-pointer text-center py-3.5 px-8 rounded-full font-semibold w-full
                                 hover:bg-purple-500/20 hover:backdrop-blur-sm
                                 relative group/mobile border border-purple-400/20
                                 hover:border-purple-300/40
@@ -189,6 +215,27 @@ const OverlayMenu = ({ menuItems = [] }) => {
                             "></div>
                         </a>
                     ))}
+
+                    {/* Mobile Download CV Button */}
+                    <a
+                        href={cvUrl}
+                        download={cvFileName}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsOpen(false)}
+                        className="
+                            flex items-center justify-center gap-2.5 text-lg font-semibold text-white
+                            py-3.5 px-8 rounded-full w-full cursor-pointer mt-2
+                            bg-gradient-to-r from-purple-600/70 via-violet-600/70 to-fuchsia-600/70
+                            hover:from-purple-600 hover:via-violet-600 hover:to-fuchsia-600
+                            border border-purple-400/50 hover:border-purple-300
+                            transition-all duration-300 active:scale-95
+                            shadow-[0_0_20px_rgba(147,51,234,0.4)]
+                        "
+                    >
+                        <ArrowDownTrayIcon className="w-5 h-5 text-purple-200" />
+                        <span>Download CV</span>
+                    </a>
                 </nav>
             </div>
         </div>
@@ -196,5 +243,3 @@ const OverlayMenu = ({ menuItems = [] }) => {
 };
 
 export default OverlayMenu;
-
-//tesss

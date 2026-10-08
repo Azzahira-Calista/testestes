@@ -20,9 +20,13 @@ export default function PortfolioPage() {
       ? projects
       : getProjectsByCategory(selectedCategory);
 
+  const sortedProjects = [...filteredProjects].sort(
+    (a, b) => b.id - a.id
+  );
+
   const displayedProjects = showAll
-    ? filteredProjects
-    : filteredProjects.slice(0, 3);
+    ? sortedProjects
+    : sortedProjects.slice(0, 3);
 
   const hasMoreProjects = filteredProjects.length > 3;
 

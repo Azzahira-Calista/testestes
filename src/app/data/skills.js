@@ -29,7 +29,7 @@ export const skills = [
   },
   {
     name: "Frontend App Development",
-    level: 85,
+    level: 90,
     icon: <FaFlutter />,
     description: "Flutter",
     category: "Technical",
@@ -43,7 +43,7 @@ export const skills = [
   },
   {
     name: "Backend Development",
-    level: 20,
+    level: 50,
     icon: <FaLaravel />,
     description: "Laravel, mySQL, APIs",
     category: "Technical",

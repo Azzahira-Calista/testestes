@@ -24,7 +24,7 @@ export default function ContactMe() {
       .send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        { name, title, email, message },
+        { name, title: "Mail from portfolio: " + title, email, message },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       )
       .then(
@@ -276,48 +276,6 @@ export default function ContactMe() {
           </div>
         </section>
 
-        {/* Contact Info */}
-        {/* <section className="px-8 py-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="
-              bg-black/30 backdrop-blur-lg border border-purple-400/30 
-              rounded-2xl p-6 text-center hover:border-purple-300/50 
-              transition-all duration-300 group shadow-glass hover:shadow-glow
-            ">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                📧
-              </div>
-              <h3 className="text-white font-semibold mb-2">Email</h3>
-              <p className="text-purple-300">{contact.email}</p>
-            </div>
-
-            <div className="
-              bg-black/30 backdrop-blur-lg border border-purple-400/30 
-              rounded-2xl p-6 text-center hover:border-purple-300/50 
-              transition-all duration-300 group shadow-glass hover:shadow-glow
-            ">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                📍
-              </div>
-              <h3 className="text-white font-semibold mb-2">Location</h3>
-              <p className="text-purple-300">{contact.location}</p>
-            </div>
-
-            <div className="
-              bg-black/30 backdrop-blur-lg border border-purple-400/30 
-              rounded-2xl p-6 text-center hover:border-purple-300/50 
-              transition-all duration-300 group shadow-glass hover:shadow-glow
-            ">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                💻
-              </div>
-              <h3 className="text-white font-semibold mb-2">Availability</h3>
-              <p className="text-purple-300">{contact.availability}</p>
-            </div>
-          </div>
-        </div>
-      </section>  */}
       </div>
     </main>
   );
